@@ -74,7 +74,7 @@
 -- 	, 	COUNT(specs.length_in_min) AS total_movies
 -- 	, 	ROUND(AVG(rating.imdb_rating), 2) AS avg_rating
 -- FROM specs
--- 	JOIN rating
+-- 	INNER JOIN rating
 -- 		USING (movie_id)
 -- WHERE length_in_min > 120
 -- UNION
@@ -82,7 +82,7 @@
 -- 	, 	COUNT(specs.length_in_min) AS total_movies
 -- 	, 	ROUND(AVG(rating.imdb_rating), 2) AS avg_rating
 -- FROM specs
--- 	JOIN rating
+-- 	INNER JOIN rating
 -- 		USING(movie_id)
 -- WHERE length_in_min <= 120
 -- ORDER BY avg_rating DESC;
