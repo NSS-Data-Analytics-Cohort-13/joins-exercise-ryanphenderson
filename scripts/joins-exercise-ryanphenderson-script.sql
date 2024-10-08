@@ -78,7 +78,7 @@
 -- 		USING (movie_id)
 -- WHERE length_in_min > 120
 -- UNION
--- SELECT '=<2 hr' AS length_in_hr
+-- SELECT '<=2 hr' AS length_in_hr
 -- 	, 	COUNT(specs.length_in_min) AS total_movies
 -- 	, 	ROUND(AVG(rating.imdb_rating), 2) AS avg_rating
 -- FROM specs
