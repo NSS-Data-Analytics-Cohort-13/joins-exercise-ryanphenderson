@@ -7,7 +7,7 @@
 -- 		USING(movie_id)
 -- ORDER BY revenue.worldwide_gross
 -- LIMIT 1;
--- Answer: "Semi-Tough" release in 1977 and grossed 37,187,139 worldwide.
+-- Answer: "Semi-Tough" released in 1977 and grossed 37,187,139 worldwide.
 
 -- 2. What year has the highest average imdb rating?
 -- SELECT specs.release_year
@@ -34,8 +34,7 @@
 -- LIMIT 1;
 -- Answer: Toy Story 4, distributed by Walt Disney
 
--- 4. Write a query that returns, for each distributor in the distributors table, the distributor name and the number of movies associated with that distributor in the movies 
--- table. Your result set should include all of the distributors, whether or not they have any movies in the movies table.
+-- 4. Write a query that returns, for each distributor in the distributors table, the distributor name and the number of movies associated with that distributor in the movies table. Your result set should include all of the distributors, whether or not they have any movies in the movies table.
 -- SELECT distributors.company_name
 -- 	, 	COUNT(DISTINCT specs.film_title) as num_films
 -- FROM distributors
@@ -58,15 +57,14 @@
 
 -- 6. How many movies in the dataset are distributed by a company which is not headquartered in California? Which of these movies has the highest imdb rating?
 -- SELECT specs.film_title
--- 	, 	MAX(rating.imdb_rating) AS max_rating
+-- 	,	rating.imdb_rating
+-- 	,	distributors.headquarters
 -- FROM distributors
 -- 	INNER JOIN specs
 -- 		ON distributors.distributor_id=specs.domestic_distributor_id
 -- 	INNER JOIN rating
 -- 		USING(movie_id)
--- WHERE distributors.headquarters NOT ILIKE '%, CA%'
--- GROUP BY specs.film_title
--- ORDER BY max_rating DESC;
+-- WHERE distributors.headquarters NOT ILIKE '%CA';
 -- Answer: 2 movies, with Dirty Dancing having the higher rating of 7.0.
 
 -- 7. Which have a higher average rating, movies which are over two hours long or movies which are under two hours?
